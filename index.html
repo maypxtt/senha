@@ -3,26 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🔐 Gerador de Senhas • Mestre Buiu</title>
+  <title>🛹 Gerador de Senhas • Charlie Brown Jr.</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="app-container">
-    <!-- Hero / Cabeçalho -->
+    <!-- Banner / Hero com vibe sk8 -->
     <header class="hero">
       <div class="hero-content">
         <div class="hero-icon">
-          <img src="cadeado.png" width="64" height="64" alt="Ícone de cadeado">
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-            <circle cx="12" cy="16" r="1.5" />
+          <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 4C10 4 8 6 8 8C8 10 10 12 12 12C14 12 16 10 16 8C16 6 14 4 12 4Z" stroke="#ff6b00" stroke-width="2"/>
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="#ffd700" stroke-width="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="#ffd700" stroke-width="2"/>
+            <circle cx="12" cy="16" r="1.5" fill="#ff6b00" stroke="none"/>
+            <line x1="2" y1="22" x2="22" y2="22" stroke="#ff6b00" stroke-width="1" stroke-dasharray="2 2"/>
           </svg>
         </div>
-        <h1 class="hero-title">Gerador de senhas <span class="highlight">da Mayla</span></h1>
-        <p class="hero-sub">Gere instantaneamente uma senha aleatória e segura.</p>
+        <h1 class="hero-title">Gerador de Senhas</h1>
+        <h2 class="hero-sub">🎸 <span class="highlight">Charlie Brown Jr.</span></h2>
+        <p class="hero-tagline">"Só as senhas que a gente gosta"</p>
+        <p class="hero-desc">Gere uma senha radical, segura e com a nossa pegada!</p>
       </div>
     </header>
 
@@ -37,12 +41,12 @@
 
     <!-- Painel de parâmetros -->
     <section class="card parametros-card">
-      <h2 class="parametro-titulo">🧩 Personalize sua senha aqui:</h2>
+      <h2 class="parametro-titulo">🧩 Personalize a sua senha, <span class="destaque">muleque</span></h2>
 
       <div class="param-grid">
         <!-- Comprimento -->
         <div class="param-group">
-          <h4 class="param-label">Número de caracteres</h4>
+          <h4 class="param-label">🎯 Número de caracteres</h4>
           <div class="stepper">
             <button class="stepper-btn" id="btn-dec" aria-label="Diminuir">−</button>
             <span class="stepper-value" id="tamanho-texto">12</span>
@@ -52,56 +56,66 @@
 
         <!-- Checkboxes -->
         <div class="param-group">
-          <h4 class="param-label">Características da senha</h4>
+          <h4 class="param-label">🎸 Características da senha</h4>
           <div class="checkbox-grid">
             <label class="checkbox-label">
-              <input type="checkbox" class="checkbox" id="chk-maius" checked> Letras maiúsculas
+              <input type="checkbox" class="checkbox" id="chk-maius" checked> 
+              <span>Maiúsculas</span>
             </label>
             <label class="checkbox-label">
-              <input type="checkbox" class="checkbox" id="chk-minus"> Letras minúsculas
+              <input type="checkbox" class="checkbox" id="chk-minus" checked> 
+              <span>Minúsculas</span>
             </label>
             <label class="checkbox-label">
-              <input type="checkbox" class="checkbox" id="chk-num"> Números
+              <input type="checkbox" class="checkbox" id="chk-num"> 
+              <span>Números</span>
             </label>
             <label class="checkbox-label">
-              <input type="checkbox" class="checkbox" id="chk-simb"> Símbolos
+              <input type="checkbox" class="checkbox" id="chk-simb"> 
+              <span>Símbolos</span>
             </label>
             <label class="checkbox-label">
-              <input type="checkbox" class="checkbox" id="chk-especiais"> Caracteres especiais
+              <input type="checkbox" class="checkbox" id="chk-especiais"> 
+              <span>Especiais ⚡</span>
             </label>
             <label class="checkbox-label">
-              <input type="checkbox" class="checkbox" id="chk-sem-ambiguos"> Evitar caracteres ambíguos
+              <input type="checkbox" class="checkbox" id="chk-sem-ambiguos"> 
+              <span>Sem ambíguos</span>
             </label>
           </div>
         </div>
 
         <!-- Força da senha -->
         <div class="param-group">
-          <h4 class="param-label">Força da senha</h4>
+          <h4 class="param-label">💪 Força da senha</h4>
           <div class="barra-forca">
             <div class="forca-bar" id="forca-bar"></div>
           </div>
           <div class="forca-rotulos">
-            <span>Fraca</span>
-            <span>Média</span>
-            <span>Forte</span>
+            <span>🍕 Fraca</span>
+            <span>🎸 Média</span>
+            <span>🔥 Forte</span>
           </div>
           <p class="entropia-texto" id="entropia-texto">Um computador pode levar dias para descobrir essa senha.</p>
         </div>
       </div>
 
-      <!-- Botão gerar (com regra de desativação) -->
-      <button class="btn-gerar" id="btn-gerar">⚡ Gerar senha</button>
+      <!-- Botão gerar -->
+      <button class="btn-gerar" id="btn-gerar">🛹 Gerar senha, mané!</button>
     </section>
 
-    <!-- Rodapé -->
+    <!-- Rodapé com referências -->
     <footer class="footer">
       <div class="footer-content">
-        <p><strong>Gerador de Senhas</strong> • Desenvolvido por <strong>Mayla</strong></p>
-        <p>Projeto para estudo de JavaScript • <span id="ano-atual"></span></p>
+        <p><strong>🤘 Gerador de Senhas do Charlie Brown Jr.</strong> • Desenvolvido com <span style="color:#ff6b00;">♥</span> por <strong>Mayla</strong></p>
+        <p>"Só os fortes sobrevivem" • <span id="ano-atual"></span></p>
         <div class="footer-links">
-          <a href="https://github.com/maypxtt/senha.git" target="_blank">GitHub</a> • 
-          <a href="#" target="_blank">Alura</a>
+          <a href="#" target="_blank">GitHub</a> • 
+          <a href="#" target="_blank">Alura</a> • 
+          <a href="#" target="_blank">Skate</a>
+        </div>
+        <div class="footer-credits">
+          <span>🎵 "Eu vou sempre lembrar, que você é meu lugar"</span>
         </div>
       </div>
     </footer>
