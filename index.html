@@ -1,76 +1,115 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHARLIE PASS - Gerador de Senhas Rock</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🔐 Gerador de Senhas • Mestre Buiu</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">
-                <h1>CHARLIE <span>BROWN</span> PASS</h1>
-                <p>🔥 SENHAS QUE AGITAM O MUNDO 🔥</p>
-            </div>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Chor%C3%A3o_-_Charlie_Brown_Jr..jpg" 
-                 alt="Chorão - Charlie Brown Jr." class="chorão-image">
-        </header>
+  <div class="app-container">
+    <!-- Hero / Cabeçalho -->
+    <header class="hero">
+      <div class="hero-content">
+        <div class="hero-icon">
+          <img src="cadeado.png" width="64" height="64" alt="Ícone de cadeado">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            <circle cx="12" cy="16" r="1.5" />
+          </svg>
+        </div>
+        <h1 class="hero-title">Gerador de senhas <span class="highlight">da Mayla</span></h1>
+        <p class="hero-sub">Gere instantaneamente uma senha aleatória e segura.</p>
+      </div>
+    </header>
 
-        <main>
-            <div class="generator">
-                <div class="password-display">
-                    <input type="text" id="password" readonly placeholder="SENHA AQUI">
-                    <button id="copy-btn" class="copy-btn">📋 COPIAR</button>
-                </div>
+    <!-- Campo da senha gerada -->
+    <section class="card senha-card">
+      <div class="senha-display">
+        <label for="campo-senha" class="sr-only">Senha gerada</label>
+        <input type="text" id="campo-senha" readonly placeholder="••••••••••••">
+        <button id="btn-copiar" class="btn-copy" aria-label="Copiar senha">📋</button>
+      </div>
+    </section>
 
-                <div class="strength-bar">
-                    <div id="strength-fill" class="strength-fill"></div>
-                </div>
-                <p id="strength-text" class="strength-text">FORÇA DA SENHA</p>
+    <!-- Painel de parâmetros -->
+    <section class="card parametros-card">
+      <h2 class="parametro-titulo">🧩 Personalize sua senha aqui:</h2>
 
-                <div class="options">
-                    <div class="length-option">
-                        <label>Tamanho: <span id="length-value">20</span></label>
-                        <input type="range" id="length" min="8" max="128" value="20" step="1">
-                    </div>
+      <div class="param-grid">
+        <!-- Comprimento -->
+        <div class="param-group">
+          <h4 class="param-label">Número de caracteres</h4>
+          <div class="stepper">
+            <button class="stepper-btn" id="btn-dec" aria-label="Diminuir">−</button>
+            <span class="stepper-value" id="tamanho-texto">12</span>
+            <button class="stepper-btn" id="btn-inc" aria-label="Aumentar">+</button>
+          </div>
+        </div>
 
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" id="uppercase" checked> A-Z Maiúsculas</label>
-                        <label><input type="checkbox" id="lowercase" checked> a-z Minúsculas</label>
-                        <label><input type="checkbox" id="numbers" checked> 0-9 Números</label>
-                        <label><input type="checkbox" id="symbols" checked> !@#$ Símbolos</label>
-                        <label><input type="checkbox" id="avoid-ambiguous" checked> Evitar ambíguos</label>
-                    </div>
-                </div>
+        <!-- Checkboxes -->
+        <div class="param-group">
+          <h4 class="param-label">Características da senha</h4>
+          <div class="checkbox-grid">
+            <label class="checkbox-label">
+              <input type="checkbox" class="checkbox" id="chk-maius" checked> Letras maiúsculas
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" class="checkbox" id="chk-minus"> Letras minúsculas
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" class="checkbox" id="chk-num"> Números
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" class="checkbox" id="chk-simb"> Símbolos
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" class="checkbox" id="chk-especiais"> Caracteres especiais
+            </label>
+            <label class="checkbox-label">
+              <input type="checkbox" class="checkbox" id="chk-sem-ambiguos"> Evitar caracteres ambíguos
+            </label>
+          </div>
+        </div>
 
-                <button id="generate-btn" class="generate-btn">🎸 GERAR SENHA PESADA 🎸</button>
+        <!-- Força da senha -->
+        <div class="param-group">
+          <h4 class="param-label">Força da senha</h4>
+          <div class="barra-forca">
+            <div class="forca-bar" id="forca-bar"></div>
+          </div>
+          <div class="forca-rotulos">
+            <span>Fraca</span>
+            <span>Média</span>
+            <span>Forte</span>
+          </div>
+          <p class="entropia-texto" id="entropia-texto">Um computador pode levar dias para descobrir essa senha.</p>
+        </div>
+      </div>
 
-                <!-- Histórico -->
-                <div class="history">
-                    <h3>Últimas Senhas</h3>
-                    <div id="history-list"></div>
-                </div>
-            </div>
+      <!-- Botão gerar (com regra de desativação) -->
+      <button class="btn-gerar" id="btn-gerar">⚡ Gerar senha</button>
+    </section>
 
-            <div class="security-tips">
-                <h3>🛡️ REGRAS DO ROCK</h3>
-                <ul>
-                    <li>Senhas acima de 18 caracteres mandam mais</li>
-                    <li>Misture tudo: letras, números e símbolos</li>
-                    <li>Nunca repita a mesma senha</li>
-                    <li>Ative 2FA em todas as contas</li>
-                    <li>Use gerenciador de senhas</li>
-                </ul>
-            </div>
-        </main>
+    <!-- Rodapé -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p><strong>Gerador de Senhas</strong> • Desenvolvido por <strong>Mayla</strong></p>
+        <p>Projeto para estudo de JavaScript • <span id="ano-atual"></span></p>
+        <div class="footer-links">
+          <a href="https://github.com/maypxtt/senha.git" target="_blank">GitHub</a> • 
+          <a href="#" target="_blank">Alura</a>
+        </div>
+      </div>
+    </footer>
+  </div>
 
-        <footer>
-            <p>Feito com respeito ao Chorão e ao Rock Brasileiro • Criptografia forte no navegador</p>
-        </footer>
-    </div>
-
-    <script src="script.js"></script>
+  <script src="main.js"></script>
+  <script>
+    document.getElementById('ano-atual').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
