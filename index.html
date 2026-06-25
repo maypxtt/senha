@@ -3,77 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Charlie Pass - Gerador de Senhas Seguras</title>
+    <title>CHARLIE PASS - Gerador de Senhas Rock</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <header>
             <div class="logo">
                 <h1>CHARLIE <span>BROWN</span> PASS</h1>
-                <p>Gerador de Senhas Fortes • Rock n' Roll Style</p>
+                <p>🔥 SENHAS QUE AGITAM O MUNDO 🔥</p>
             </div>
-            <img src="https://picsum.photos/id/1074/800/450" alt="Charlie Brown Jr." class="charlie-image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Chor%C3%A3o_-_Charlie_Brown_Jr..jpg" 
+                 alt="Chorão - Charlie Brown Jr." class="chorão-image">
         </header>
 
         <main>
             <div class="generator">
                 <div class="password-display">
-                    <input type="text" id="password" readonly placeholder="Sua senha aparecerá aqui">
-                    <button id="copy-btn" class="copy-btn">COPIAR</button>
+                    <input type="text" id="password" readonly placeholder="SENHA AQUI">
+                    <button id="copy-btn" class="copy-btn">📋 COPIAR</button>
                 </div>
 
                 <div class="strength-bar">
                     <div id="strength-fill" class="strength-fill"></div>
                 </div>
-                <p id="strength-text" class="strength-text">Força da Senha</p>
+                <p id="strength-text" class="strength-text">FORÇA DA SENHA</p>
 
                 <div class="options">
                     <div class="length-option">
-                        <label for="length">Tamanho da senha:</label>
-                        <div class="slider-wrapper">
-                            <input type="range" id="length" min="8" max="128" value="20" step="1">
-                            <span id="length-value">20</span>
-                        </div>
+                        <label>Tamanho: <span id="length-value">20</span></label>
+                        <input type="range" id="length" min="8" max="128" value="20" step="1">
                     </div>
 
                     <div class="checkbox-group">
-                        <label class="check-label">
-                            <input type="checkbox" id="uppercase" checked> <span>A-Z Maiúsculas</span>
-                        </label>
-                        <label class="check-label">
-                            <input type="checkbox" id="lowercase" checked> <span>a-z Minúsculas</span>
-                        </label>
-                        <label class="check-label">
-                            <input type="checkbox" id="numbers" checked> <span>0-9 Números</span>
-                        </label>
-                        <label class="check-label">
-                            <input type="checkbox" id="symbols" checked> <span>!@#$ Símbolos</span>
-                        </label>
-                        <label class="check-label">
-                            <input type="checkbox" id="avoid-ambiguous" checked> <span>Evitar caracteres ambíguos</span>
-                        </label>
+                        <label><input type="checkbox" id="uppercase" checked> A-Z Maiúsculas</label>
+                        <label><input type="checkbox" id="lowercase" checked> a-z Minúsculas</label>
+                        <label><input type="checkbox" id="numbers" checked> 0-9 Números</label>
+                        <label><input type="checkbox" id="symbols" checked> !@#$ Símbolos</label>
+                        <label><input type="checkbox" id="avoid-ambiguous" checked> Evitar ambíguos</label>
                     </div>
                 </div>
 
-                <button id="generate-btn" class="generate-btn">🔥 GERAR SENHA SEGURA 🔥</button>
+                <button id="generate-btn" class="generate-btn">🎸 GERAR SENHA PESADA 🎸</button>
+
+                <!-- Histórico -->
+                <div class="history">
+                    <h3>Últimas Senhas</h3>
+                    <div id="history-list"></div>
+                </div>
             </div>
 
             <div class="security-tips">
-                <h3>🛡️ Dicas de Segurança do Charlie</h3>
+                <h3>🛡️ REGRAS DO ROCK</h3>
                 <ul>
-                    <li>Use senhas com +16 caracteres</li>
-                    <li>Misture letras, números e símbolos</li>
-                    <li>Nunca reuse a mesma senha</li>
-                    <li>Ative 2FA sempre que possível</li>
-                    <li>Guarde em um gerenciador confiável</li>
+                    <li>Senhas acima de 18 caracteres mandam mais</li>
+                    <li>Misture tudo: letras, números e símbolos</li>
+                    <li>Nunca repita a mesma senha</li>
+                    <li>Ative 2FA em todas as contas</li>
+                    <li>Use gerenciador de senhas</li>
                 </ul>
             </div>
         </main>
 
         <footer>
-            <p>Inspirado em Charlie Brown Jr. • Criptografia forte no navegador</p>
+            <p>Feito com respeito ao Chorão e ao Rock Brasileiro • Criptografia forte no navegador</p>
         </footer>
     </div>
 
